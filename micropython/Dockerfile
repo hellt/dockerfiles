@@ -7,4 +7,5 @@ RUN git clone --depth 1 -b ${UPY_VERSION} https://github.com/micropython/micropy
 FROM python:3-slim as target
 COPY --from=builder /micropython/ports/unix/micropython /usr/bin
 RUN pip install black
-ENTRYPOINT /usr/bin/micropython
+WORKDIR /workdir
+CMD ["/usr/bin/micropython"]
