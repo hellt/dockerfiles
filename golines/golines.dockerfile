@@ -1,8 +1,9 @@
-FROM golang:1.17-alpine AS builder
+FROM golang:1.18-alpine AS builder
+ARG VERSION=v0.10.0
 RUN apk add git
-RUN go install github.com/segmentio/golines@v0.8.0 && go install golang.org/x/tools/cmd/goimports@latest
+RUN go install github.com/segmentio/golines@v${VERSION} && go install golang.org/x/tools/cmd/goimports@latest
 
-FROM alpine:3
+FROM golang:1.18-alpine
 WORKDIR /work
 COPY --from=builder /go/bin/golines /usr/local/bin
 COPY --from=builder /go/bin/goimports /usr/local/bin
