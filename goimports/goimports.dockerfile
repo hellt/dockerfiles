@@ -1,5 +1,5 @@
-FROM golang:1.18-alpine AS builder
-ARG VERSION=v0.5.0
+FROM golang:1.21-alpine AS builder
+ARG VERSION=v0.16.0
 RUN apk add git
 RUN go install golang.org/x/tools/cmd/goimports@${VERSION}
 
