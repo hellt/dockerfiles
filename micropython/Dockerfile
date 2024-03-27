@@ -1,6 +1,6 @@
 FROM python:3 as builder
 
-ARG UPY_VERSION="v1.18"
+ARG UPY_VERSION="v1.19"
 RUN git clone --depth 1 -b ${UPY_VERSION} https://github.com/micropython/micropython.git && \
     cd micropython/ports/unix && make submodules && make
 
@@ -10,6 +10,6 @@ RUN apt update && \
     apt install -y \
     jq && \
     pip install \
-    black
+    ruff
 WORKDIR /workdir
 CMD ["/usr/bin/micropython"]
