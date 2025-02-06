@@ -17,4 +17,5 @@ COPY --from=builder /tmp/pkg /tmp/pkg
 RUN dpkg -i /tmp/pkg/*.deb
 WORKDIR /work
 
-CMD [ "yanglint" ]
+ENTRYPOINT [ "yanglint" ]
+CMD ["--help"]
