@@ -1,6 +1,6 @@
 # YANGLINT
 
-A container image with yanglint and yanglib tools installed.
+A container image with [yanglint and libyang](https://github.com/CESNET/libyang) tools installed.
 
 ## Usage
 
