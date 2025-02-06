@@ -18,4 +18,3 @@ RUN dpkg -i /tmp/pkg/*.deb
 WORKDIR /work
 
 ENTRYPOINT [ "yanglint" ]
-CMD ["--help"]
