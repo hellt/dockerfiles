@@ -7,6 +7,9 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
-sudo docker build -t ghcr.io/hellt/yanglint:$1 \
+docker buildx build \
+    --push \
+    --platform linux/arm64,linux/amd64 \
+    -t ghcr.io/hellt/yanglint:$1 \
     --build-arg VERSION=$1 \
     -f yanglint.dockerfile .
