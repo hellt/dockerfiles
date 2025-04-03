@@ -10,10 +10,10 @@ FILES=$(find "$WORK_DIR" -type f -exec file {} \; | grep text | cut -d: -f1)
 
 echo "Processing files with envsubst..."
 
-for FILE in ; do
-  echo "Processing "
-  envsubst < "" > /tmp/envsubst || exit 1
-  mv /tmp/envsubst "" || exit 1
+for FILE in $FILES; do
+  echo "Processing $FILE"
+  envsubst < "$FILE" > /tmp/envsubst || exit 1
+  mv /tmp/envsubst "$FILE" || exit 1
 done
 
 echo "All files processed successfully"
