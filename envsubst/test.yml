@@ -1,0 +1,2 @@
+Some ${EXISTING_VAR} value
+And here is ${NON_EXISTING_VAR} that should not be replaced
