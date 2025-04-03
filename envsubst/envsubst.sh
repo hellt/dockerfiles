@@ -6,7 +6,7 @@ WORK_DIR="/work"
 
 # Find all text files in the work directory
 # Using file command to identify text files
-FILES=$(find  -type f -exec file {} \; | grep text | cut -d: -f1)
+FILES=$(find "$WORK_DIR" -type f -exec file {} \; | grep text | cut -d: -f1)
 
 echo "Processing files with envsubst..."
 
